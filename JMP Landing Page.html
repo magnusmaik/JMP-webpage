@@ -1,0 +1,1592 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>JMP — Independent energy services since 1952</title>
+<meta name="description" content="Third-generation oilfield services. Wireline, testing, cementing, and equipment rentals across four countries since 1952." />
+<link rel="preload" as="image" href="assets/hero-poster.jpg" />
+<link rel="preload" as="video" href="assets/hero-loop.mp4" type="video/mp4" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Fraktur:wght@500&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root, html[data-mood="rust"] {
+    --charcoal:#161310;
+    --char-2:#1F1B16;
+    --bone:#F2EEE6;
+    --bone-2:#EDE7DB;
+    --rust:#A8332B;
+    --rust-2:#7D241E;
+    --iron:#2A2722;
+    --ash:#6F6A60;
+    --ash-2:#8B867B;
+    --sand:#D7D0C2;
+    --sand-2:#C8C0AE;
+    --cream:#EFE9DB;
+  }
+
+  /* === TWEAK: MOOD === */
+  html[data-mood="steel"]{
+    --charcoal:#0E1216;
+    --char-2:#161B22;
+    --bone:#ECEDEE;
+    --bone-2:#E4E6E9;
+    --rust:#2A6FDB;
+    --rust-2:#1E54AE;
+    --iron:#1B2028;
+    --ash:#646A74;
+    --ash-2:#838995;
+    --sand:#D1D5DA;
+    --sand-2:#BFC4CB;
+    --cream:#F5F6F7;
+  }
+  html[data-mood="onyx"]{
+    --charcoal:#0E0C0A;
+    --char-2:#171411;
+    --bone:#171411;
+    --bone-2:#1F1B16;
+    --rust:#C4493E;
+    --rust-2:#A8332B;
+    --iron:#EFE9DB;
+    --ash:#9A9286;
+    --ash-2:#6F695E;
+    --sand:#3A352C;
+    --sand-2:#4A4339;
+    --cream:#211D18;
+  }
+
+  :root{
+    --display:'Bricolage Grotesque', ui-sans-serif, system-ui, sans-serif;
+    --body:'Manrope', ui-sans-serif, system-ui, sans-serif;
+    --mono:'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    --display-weight:500;
+    --display-letter:-0.025em;
+    --display-leading:0.95;
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    /* Density scales — bound below */
+    --sect-py-m:96px;
+    --sect-py-d:140px;
+    --h1-size:clamp(54px,9.2vw,148px);
+    --h1-hero:clamp(56px,9.4vw,156px);
+    --h2-size:clamp(44px,7vw,108px);
+    --h3-size:clamp(28px,3.6vw,44px);
+    --hero-stat-num:clamp(34px,4.4vw,56px);
+    --service-size:clamp(28px,4vw,52px);
+    --footer-mark:clamp(80px,16vw,220px);
+    --marquee-size:clamp(40px,6vw,84px);
+  }
+
+  /* === TWEAK: TYPE === */
+  html[data-type="editorial"]{
+    --display:'PT Serif', Georgia, 'Times New Roman', serif;
+    --display-weight:700;
+    --display-letter:-0.01em;
+    --display-leading:1.0;
+  }
+  html[data-type="technical"]{
+    --display:'JetBrains Mono', ui-monospace, monospace;
+    --body:'JetBrains Mono', ui-monospace, monospace;
+    --display-weight:500;
+    --display-letter:-0.02em;
+    --display-leading:1.0;
+  }
+
+  /* === TWEAK: DENSITY === */
+  html[data-density="editorial"]{
+    --sect-py-m:72px;
+    --sect-py-d:104px;
+    --h1-size:clamp(44px,7.2vw,118px);
+    --h1-hero:clamp(46px,7.4vw,122px);
+    --h2-size:clamp(36px,5.6vw,84px);
+    --h3-size:clamp(24px,3vw,36px);
+    --hero-stat-num:clamp(28px,3.6vw,44px);
+    --service-size:clamp(24px,3.2vw,40px);
+    --footer-mark:clamp(64px,12vw,170px);
+    --marquee-size:clamp(32px,5vw,68px);
+  }
+  html[data-density="cockpit"]{
+    --sect-py-m:48px;
+    --sect-py-d:80px;
+    --h1-size:clamp(36px,5.4vw,92px);
+    --h1-hero:clamp(38px,5.6vw,96px);
+    --h2-size:clamp(28px,4.4vw,64px);
+    --h3-size:clamp(20px,2.4vw,28px);
+    --hero-stat-num:clamp(24px,3vw,36px);
+    --service-size:clamp(20px,2.6vw,32px);
+    --footer-mark:clamp(48px,9vw,128px);
+    --marquee-size:clamp(26px,4vw,52px);
+  }
+  *,*::before,*::after{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  html{scroll-behavior:smooth;background:var(--bone);}
+  body{
+    font-family:var(--body);font-weight:400;color:var(--iron);background:var(--bone);
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+    overflow-x:hidden;
+    font-feature-settings:"ss01","cv11";
+  }
+  ::selection{background:var(--rust);color:var(--cream);}
+  img,video{display:block;max-width:100%;}
+
+  /* Film grain — fixed, pointer-events:none, doesn't repaint with scroll */
+  .grain{
+    position:fixed;inset:0;z-index:100;pointer-events:none;opacity:0.05;mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.9 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+
+  /* Scroll progress rail (right edge) */
+  .progress-rail{
+    position:fixed;top:0;right:0;width:2px;height:100vh;z-index:80;pointer-events:none;
+  }
+  .progress-rail .bar{
+    position:absolute;top:0;left:0;width:100%;height:0;background:var(--rust);transform-origin:top;
+    transition:height 80ms linear;
+  }
+
+  .container{max-width:1440px;margin:0 auto;padding:0 24px;}
+  @media (min-width:768px){.container{padding:0 48px;}}
+  section{padding:var(--sect-py-m) 0;position:relative;}
+  @media (min-width:768px){section{padding:var(--sect-py-d) 0;}}
+
+  /* === TYPE === */
+  .eyebrow{
+    font-family:var(--mono);font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--ash);
+    display:inline-flex;gap:12px;align-items:center;margin:0;
+  }
+  .eyebrow .dot{width:6px;height:6px;background:var(--rust);border-radius:50%;display:inline-block;position:relative;}
+  .eyebrow .dot::after{
+    content:"";position:absolute;inset:-4px;border-radius:50%;border:1px solid var(--rust);opacity:0.35;
+    animation:pulse 2.4s ease-out infinite;
+  }
+  @keyframes pulse{0%{transform:scale(.6);opacity:.6;}100%{transform:scale(1.4);opacity:0;}}
+  .eyebrow .num{color:var(--iron);font-weight:500;}
+  .eyebrow .bar{width:32px;height:1px;background:currentColor;opacity:0.4;}
+
+  h1,h2,h3,h4{
+    font-family:var(--display);font-weight:var(--display-weight);letter-spacing:var(--display-letter);line-height:var(--display-leading);margin:0;
+    font-variation-settings:"opsz" 96;
+  }
+  h1{font-size:var(--h1-size);}
+  h2{font-size:var(--h2-size);}
+  h3{font-size:var(--h3-size);}
+  h4{font-size:clamp(22px,2.4vw,30px);letter-spacing:-0.015em;line-height:1.05;}
+  p{font-size:16px;line-height:1.6;color:var(--iron);}
+  .lead{font-size:18px;line-height:1.55;color:var(--iron);}
+  .muted{color:var(--ash);}
+  .mono{font-family:var(--mono);}
+
+  /* Words always visible. (Iframe environments can stall pending animations,
+     so we don't rely on word-stagger for visibility.) */
+  .stagger-words .word{display:inline-block;opacity:1;}
+
+  /* === NAV === */
+  .nav{
+    position:fixed;top:0;left:0;right:0;z-index:50;color:var(--cream);
+    transition:background 400ms var(--ease), color 400ms var(--ease), border-color 400ms var(--ease);
+    border-bottom:1px solid transparent;
+  }
+  .nav.solid{
+    background:rgba(242,238,230,0.92);backdrop-filter:saturate(140%) blur(10px);
+    border-bottom-color:var(--sand);color:var(--iron);
+  }
+  .nav-inner{
+    max-width:1440px;margin:0 auto;padding:16px 24px;
+    display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:24px;
+  }
+  @media (min-width:768px){.nav-inner{padding:18px 48px;}}
+  .brand{
+    font-family:var(--display);font-weight:600;font-size:18px;letter-spacing:-0.01em;color:inherit;text-decoration:none;
+    display:inline-flex;align-items:center;gap:14px;
+  }
+  .brand .mark{
+    width:42px;height:42px;display:inline-grid;place-items:center;
+    transition:transform 500ms var(--ease-spring);
+  }
+  .brand .mark img{
+    width:100%;height:100%;object-fit:contain;display:block;
+    transition:filter 400ms var(--ease);
+  }
+  /* Logo is white-on-transparent — invert to dark when nav goes solid on bone */
+  .nav.solid .brand .mark img{filter:invert(1) brightness(0.15);}
+  .brand:hover .mark{transform:rotate(-6deg) scale(1.04);}
+  .brand .word{display:none;font-weight:600;}
+  @media (min-width:600px){.brand .word{display:inline;}}
+  .nav-links{display:none;justify-content:center;gap:38px;font-family:var(--mono);font-size:12px;letter-spacing:0.14em;text-transform:uppercase;}
+  @media (min-width:980px){.nav-links{display:flex;}}
+  .nav-links a{color:inherit;text-decoration:none;opacity:0.78;transition:opacity 200ms;position:relative;padding:6px 0;}
+  .nav-links a::after{
+    content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:currentColor;
+    transform:scaleX(0);transform-origin:left;transition:transform 360ms var(--ease);
+  }
+  .nav-links a:hover{opacity:1;}
+  .nav-links a:hover::after{transform:scaleX(1);}
+  .nav-right{display:flex;align-items:center;gap:12px;justify-self:end;}
+  .lang-toggle{
+    font-family:var(--mono);font-size:11px;letter-spacing:0.1em;
+    display:inline-flex;border:1px solid currentColor;color:inherit;background:transparent;
+  }
+  .lang-toggle button{
+    appearance:none;background:transparent;border:0;cursor:pointer;
+    padding:7px 11px;color:inherit;font:inherit;letter-spacing:inherit;
+    opacity:0.5;transition:opacity 200ms, background 200ms, color 200ms;
+  }
+  .lang-toggle button.active{opacity:1;background:currentColor;}
+  .lang-toggle button.active span{color:var(--charcoal);}
+  .nav.solid .lang-toggle button.active span{color:var(--bone);}
+  .hamburger{display:inline-flex;flex-direction:column;gap:5px;width:36px;height:36px;align-items:center;justify-content:center;background:transparent;border:0;cursor:pointer;color:inherit;}
+  .hamburger span{display:block;width:18px;height:1px;background:currentColor;}
+  @media (min-width:980px){.hamburger{display:none;}}
+
+  .mobile-menu{position:fixed;inset:0;z-index:60;background:var(--charcoal);color:var(--cream);display:flex;flex-direction:column;padding:24px;transform:translateY(-100%);transition:transform 500ms var(--ease);}
+  .mobile-menu.open{transform:translateY(0);}
+  .mobile-menu-top{display:flex;justify-content:space-between;align-items:center;}
+  .mobile-menu nav{margin-top:auto;margin-bottom:auto;display:flex;flex-direction:column;gap:18px;}
+  .mobile-menu nav a{color:inherit;text-decoration:none;font-family:var(--display);font-weight:500;font-size:44px;letter-spacing:-0.025em;line-height:1;}
+  .mobile-menu .meta{font-family:var(--mono);font-size:11px;color:var(--ash-2);text-transform:uppercase;letter-spacing:0.18em;}
+
+  /* === HERO === */
+  .hero{position:relative;min-height:100dvh;background:var(--charcoal);color:var(--cream);overflow:hidden;display:flex;flex-direction:column;padding:0;}
+  .hero-media{position:absolute;inset:0;z-index:0;will-change:transform;}
+  .hero-media video, .hero-media img.poster, .hero-media canvas.frames{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 55%;}
+  .hero-media video{visibility:hidden;}/* hidden source we seek through */
+  .hero-media canvas.frames{opacity:0;transition:opacity 600ms var(--ease);}
+  .hero-media canvas.frames.in{opacity:1;}
+  .hero-media .poster{transition:opacity 700ms var(--ease);}
+  .hero-media::before{
+    content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+    background:
+      linear-gradient(to right, rgba(22,19,16,0.55) 0%, rgba(22,19,16,0.12) 32%, rgba(22,19,16,0) 60%, rgba(22,19,16,0.18) 100%);
+  }
+  .hero-media::after{
+    content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+    background:
+      linear-gradient(to bottom, rgba(22,19,16,0.45) 0%, rgba(22,19,16,0) 18%, rgba(22,19,16,0) 42%, rgba(22,19,16,0.55) 75%, rgba(22,19,16,0.92) 100%);
+  }
+  .hero-vignette{
+    position:absolute;inset:0;z-index:2;pointer-events:none;
+    background:radial-gradient(130% 90% at 50% 50%, transparent 55%, rgba(0,0,0,0.35) 100%);
+  }
+
+  /* Vertical rule with tick marks down the left side of the hero */
+  .hero-rule{
+    position:absolute;left:24px;top:0;bottom:0;z-index:3;display:none;
+    flex-direction:column;justify-content:space-between;
+    font-family:var(--mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;
+    color:rgba(239,233,219,0.55);
+  }
+  @media (min-width:980px){.hero-rule{display:flex;left:48px;width:auto;}}
+  .hero-rule .tick{display:flex;align-items:center;gap:10px;}
+  .hero-rule .tick .line{display:inline-block;width:14px;height:1px;background:rgba(239,233,219,0.4);}
+  .hero-rule .top{margin-top:96px;}
+  .hero-rule .mid{margin:auto 0;}
+  .hero-rule .bot{margin-bottom:32px;}
+
+  /* Status pill */
+  .hero-status{
+    position:absolute;top:96px;right:24px;z-index:3;
+    display:inline-flex;align-items:center;gap:10px;
+    padding:8px 14px;border:1px solid rgba(239,233,219,0.25);
+    background:rgba(22,19,16,0.35);backdrop-filter:blur(6px);
+    font-family:var(--mono);font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(239,233,219,0.85);
+  }
+  @media (min-width:768px){.hero-status{right:48px;}}
+  .hero-status .pulse{
+    width:7px;height:7px;border-radius:50%;background:#3fb37f;display:inline-block;position:relative;flex-shrink:0;
+    box-shadow:0 0 0 0 rgba(63,179,127,0.6);
+    animation:livepulse 2.2s ease-out infinite;
+  }
+  @keyframes livepulse{
+    0%{box-shadow:0 0 0 0 rgba(63,179,127,0.55);}
+    100%{box-shadow:0 0 0 12px rgba(63,179,127,0);}
+  }
+
+  .hero-inner{
+    position:relative;z-index:3;width:100%;max-width:1440px;margin:0 auto;
+    padding:0 24px 56px;flex:1;display:flex;flex-direction:column;justify-content:flex-end;
+    will-change:transform;
+  }
+  @media (min-width:768px){.hero-inner{padding:0 48px 80px 110px;}}
+  .hero-eyebrow{
+    font-family:var(--mono);font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:rgba(239,233,219,0.7);
+    display:inline-flex;align-items:center;gap:14px;margin-bottom:36px;
+  }
+  .hero-eyebrow .hr{width:48px;height:1px;background:rgba(239,233,219,0.4);display:inline-block;}
+  .hero h1{color:#fff;font-size:var(--h1-hero);max-width:14ch;}
+  .hero h1 .accent{color:var(--rust);}
+  .hero-sub{margin-top:36px;max-width:42ch;color:rgba(255,255,255,0.78);font-size:17px;line-height:1.55;}
+
+  /* Big stats line — no boxes, 1px dividers, mono numerals */
+  .hero-stats{
+    margin-top:64px;display:grid;grid-template-columns:repeat(3,1fr);gap:0;
+    border-top:1px solid rgba(239,233,219,0.18);max-width:760px;
+  }
+  .hero-stats .stat{padding:22px 0 8px;border-right:1px solid rgba(239,233,219,0.18);padding-right:18px;}
+  .hero-stats .stat:last-child{border-right:0;}
+  .hero-stats .stat:not(:first-child){padding-left:22px;}
+  .hero-stats .stat .num{
+    font-family:var(--display);font-weight:var(--display-weight);font-size:var(--hero-stat-num);color:#fff;line-height:1;letter-spacing:var(--display-letter);display:block;
+  }
+  .hero-stats .stat .lbl{
+    font-family:var(--mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(239,233,219,0.55);
+    margin-top:10px;display:block;
+  }
+
+  .hero-bottom-row{margin-top:48px;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;}
+  .hero-cta{
+    display:inline-flex;align-items:center;gap:16px;color:#fff;text-decoration:none;
+    font-family:var(--mono);font-size:12px;letter-spacing:0.16em;text-transform:uppercase;
+    padding:14px 0 12px;border-bottom:1px solid rgba(255,255,255,0.55);
+    transition:border-color 360ms var(--ease), color 360ms var(--ease);
+  }
+  .hero-cta .arrow{display:inline-block;transition:transform 360ms var(--ease);}
+  .hero-cta:hover{border-color:var(--rust);}
+  .hero-cta:hover .arrow{transform:translateX(8px);}
+  .hero-coords{font-family:var(--mono);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(239,233,219,0.55);text-align:right;line-height:1.7;}
+
+  /* Scroll cue */
+  .scroll-cue{
+    position:absolute;left:50%;bottom:24px;z-index:3;transform:translateX(-50%);
+    display:flex;flex-direction:column;align-items:center;gap:8px;
+    font-family:var(--mono);font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(239,233,219,0.6);
+  }
+  .scroll-cue .line{width:1px;height:42px;background:linear-gradient(to bottom, rgba(239,233,219,0.1), rgba(239,233,219,0.7) 50%, rgba(239,233,219,0.1));position:relative;overflow:hidden;}
+  .scroll-cue .line::after{
+    content:"";position:absolute;left:0;right:0;top:-30%;height:30%;background:#fff;animation:drip 2.4s ease-in-out infinite;
+  }
+  @keyframes drip{0%{top:-30%;}80%,100%{top:100%;}}
+
+  /* === DARK→LIGHT TRANSITION === */
+  .transition-strip{
+    position:relative;height:380px;
+    background:
+      linear-gradient(to bottom,
+        var(--charcoal) 0%,
+        var(--charcoal) 22%,
+        rgba(60,32,22,0.92) 38%,
+        rgba(125,46,30,0.55) 50%,
+        rgba(168,90,55,0.28) 60%,
+        rgba(218,200,170,0.55) 76%,
+        var(--bone) 100%
+      );
+    overflow:hidden;
+  }
+  /* Tick pattern across the horizon line */
+  .transition-strip::before{
+    content:"";position:absolute;left:0;right:0;top:50%;height:1px;
+    background:repeating-linear-gradient(to right,
+      rgba(239,233,219,0.45) 0, rgba(239,233,219,0.45) 6px,
+      transparent 6px, transparent 24px);
+  }
+  .transition-strip::after{
+    content:"";position:absolute;left:0;right:0;top:50%;height:1px;
+    background:linear-gradient(to right, transparent, var(--rust), transparent);
+    opacity:0.6;
+  }
+  .transition-strip .chapter{
+    position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+    display:inline-flex;align-items:center;gap:18px;
+    padding:14px 22px;background:var(--bone);border:1px solid var(--sand);
+    font-family:var(--mono);font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--iron);
+    box-shadow:0 24px 60px -20px rgba(60,32,22,0.45);
+  }
+  .transition-strip .chapter .dot{width:6px;height:6px;background:var(--rust);border-radius:50%;}
+  .transition-strip .coord-l, .transition-strip .coord-r{
+    position:absolute;top:50%;transform:translateY(-50%);
+    font-family:var(--mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;
+    color:rgba(239,233,219,0.65);padding:0 24px;display:none;
+  }
+  .transition-strip .coord-l{left:0;}
+  .transition-strip .coord-r{right:0;text-align:right;}
+  @media (min-width:980px){.transition-strip .coord-l,.transition-strip .coord-r{display:block;}}
+  .transition-strip .horizon{
+    position:absolute;left:0;right:0;bottom:0;height:60px;
+    background:linear-gradient(to bottom, transparent, var(--bone));
+  }
+
+  /* === SECTION CHROME (chapter header) === */
+  .chapter-head{display:flex;flex-direction:column;gap:36px;}
+  .chapter-row{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;}
+
+  /* === 01 COMPANY === */
+  .intro-grid{display:grid;grid-template-columns:1fr;gap:48px;margin-top:64px;}
+  @media (min-width:980px){.intro-grid{grid-template-columns:1.6fr 1fr;gap:80px;align-items:end;}}
+  .intro-grid .body{max-width:46ch;}
+  .intro-grid .body p + p{margin-top:18px;}
+
+  /* Quote callout under intro */
+  .quote{
+    margin-top:80px;display:grid;grid-template-columns:1fr;gap:24px;
+    border-top:1px solid var(--sand);padding-top:36px;
+  }
+  @media (min-width:768px){.quote{grid-template-columns:auto 1fr auto;gap:48px;align-items:start;}}
+  .quote .who{font-family:var(--mono);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ash);line-height:1.6;}
+  .quote .said{font-family:var(--display);font-weight:500;font-size:clamp(20px,2.4vw,28px);line-height:1.25;letter-spacing:-0.01em;color:var(--iron);max-width:42ch;}
+  .quote .cite{font-family:var(--mono);font-size:11px;letter-spacing:0.16em;color:var(--ash);}
+
+  /* === 02 SERVICES (zig-zag, FIXED) === */
+  .services-list{margin-top:64px;display:flex;flex-direction:column;}
+  .service{
+    border-top:1px solid var(--sand);padding:44px 0;text-decoration:none;color:inherit;cursor:pointer;
+    display:grid;grid-template-columns:1fr;gap:18px;position:relative;
+    transition:padding 360ms var(--ease);
+  }
+  .service:last-child{border-bottom:1px solid var(--sand);}
+  .service .num{font-family:var(--mono);font-size:12px;letter-spacing:0.18em;color:var(--ash);}
+  .service .name{font-family:var(--display);font-weight:var(--display-weight);font-size:var(--service-size);letter-spacing:var(--display-letter);line-height:1;color:var(--iron);transition:color 360ms var(--ease), transform 500ms var(--ease);display:inline-block;}
+  .service .underline{display:block;height:1px;background:var(--rust);transform:scaleX(0);transform-origin:left;transition:transform 420ms var(--ease);margin-top:8px;}
+  .service .desc{margin-top:14px;color:var(--ash);font-size:15px;line-height:1.55;max-width:48ch;}
+  .service .arrow{font-family:var(--mono);font-size:14px;color:var(--ash);transition:transform 360ms var(--ease), color 240ms;letter-spacing:0;}
+  @media (min-width:768px){
+    .service{grid-template-columns:80px 1fr 60px;gap:48px;align-items:start;padding:56px 0;}
+    .service .num{padding-top:14px;}
+    .service .name-block{max-width:56ch;}
+    .service .arrow{padding-top:18px;justify-self:end;}
+    .service.right{grid-template-columns:60px 1fr 80px;}
+    .service.right .num{order:3;justify-self:end;text-align:right;}
+    .service.right .name-block{order:2;text-align:right;justify-self:end;max-width:56ch;}
+    .service.right .name-block .underline{transform-origin:right;}
+    .service.right .arrow{order:1;justify-self:start;text-align:left;}
+  }
+  .service:hover .name{color:var(--rust);}
+  .service:hover .underline{transform:scaleX(1);}
+  .service:hover .arrow{color:var(--rust);transform:translateX(8px);}
+  .service.right:hover .arrow{transform:translateX(-8px);}
+
+  /* === 03 RENTALS === */
+  .marquee{
+    margin-top:64px;border-top:1px solid var(--sand);border-bottom:1px solid var(--sand);
+    padding:32px 0;overflow:hidden;position:relative;
+    -webkit-mask-image:linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+            mask-image:linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  }
+  .marquee-track{display:flex;gap:64px;width:max-content;animation:marquee 38s linear infinite;will-change:transform;}
+  .marquee-track:hover{animation-play-state:paused;}
+  .marquee-item{
+    font-family:var(--display);font-weight:var(--display-weight);font-size:var(--marquee-size);line-height:1;letter-spacing:var(--display-letter);color:var(--iron);
+    display:inline-flex;align-items:center;gap:32px;
+  }
+  .marquee-item .sep{font-family:var(--mono);font-size:18px;color:var(--rust);font-weight:400;}
+  .marquee-item .ghost{color:transparent;-webkit-text-stroke:1px var(--iron);}
+  @keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+  .rentals-meta{
+    margin-top:48px;display:grid;grid-template-columns:1fr;gap:32px;
+    font-family:var(--mono);font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ash);
+  }
+  @media (min-width:768px){.rentals-meta{grid-template-columns:1fr 1fr 1fr;gap:48px;}}
+  .rentals-meta .col strong{color:var(--iron);font-weight:500;display:block;margin-bottom:6px;}
+  .rentals-meta .col .v{font-family:var(--display);font-weight:500;font-size:32px;letter-spacing:-0.02em;color:var(--iron);text-transform:none;line-height:1;margin-top:4px;display:block;margin-bottom:8px;}
+  .rentals-meta .col > span:not(.v){display:block;}
+
+  .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:48px;}
+  .chip{font-family:var(--mono);font-size:12px;letter-spacing:0.08em;text-transform:uppercase;border:1px solid var(--rust);color:var(--rust);background:transparent;padding:9px 16px;transition:background 240ms var(--ease), color 240ms;white-space:nowrap;}
+  .chip:hover{background:var(--rust);color:var(--cream);}
+  .chip.iso{border-color:var(--iron);color:var(--iron);}
+  .chip.iso:hover{background:var(--iron);color:var(--cream);}
+
+  /* === 04 MARKETS === */
+  .markets-wrap{margin-top:64px;display:grid;grid-template-columns:1fr;gap:56px;}
+  @media (min-width:980px){.markets-wrap{grid-template-columns:1.1fr 1fr;gap:80px;align-items:start;}}
+
+  .markets-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:1px;background:var(--sand);border:1px solid var(--sand);}
+  @media (min-width:768px){.markets-grid{grid-template-columns:1.4fr 1fr;grid-template-rows:1fr 0.78fr;}}
+  .market{background:var(--bone);padding:24px;display:flex;flex-direction:column;justify-content:space-between;gap:32px;min-height:200px;position:relative;overflow:hidden;}
+  @media (min-width:768px){.market{padding:36px;min-height:240px;}}
+  .market::before{
+    content:"";position:absolute;inset:0;background:var(--cream);transform:translateY(100%);transition:transform 540ms var(--ease);z-index:0;
+  }
+  .market:hover::before{transform:translateY(0);}
+  .market > *{position:relative;z-index:1;}
+  .market .meta{font-family:var(--mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--ash);}
+  .market .meta strong{color:var(--rust);font-weight:500;margin-right:8px;}
+  .market h3{color:var(--iron);}
+  .market .desc{margin-top:10px;color:var(--ash);font-size:13.5px;line-height:1.5;max-width:32ch;}
+
+  /* Map SVG panel */
+  .map-panel{
+    background:var(--charcoal);color:var(--cream);padding:32px;position:relative;overflow:hidden;
+    aspect-ratio:1/1;display:flex;flex-direction:column;
+  }
+  .map-panel .label{font-family:var(--mono);font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(239,233,219,0.55);}
+  .map-panel svg{width:100%;height:100%;display:block;flex:1;}
+  .map-dot{fill:var(--rust);}
+  .map-pulse{fill:var(--rust);opacity:0.4;animation:mappulse 2.4s ease-out infinite;transform-box:fill-box;transform-origin:center;}
+  @keyframes mappulse{0%{transform:scale(.4);opacity:.55;}100%{transform:scale(2.6);opacity:0;}}
+  .map-line{stroke:rgba(168,51,43,0.5);stroke-width:1;stroke-dasharray:3 4;fill:none;}
+  .map-link{stroke:rgba(239,233,219,0.18);stroke-width:1;fill:none;}
+  .map-text{font-family:var(--mono);font-size:9.5px;letter-spacing:0.12em;fill:rgba(239,233,219,0.78);text-transform:uppercase;}
+  .map-text.hq{fill:#fff;}
+  .map-coord{font-family:var(--mono);font-size:7.5px;fill:rgba(239,233,219,0.45);letter-spacing:0.05em;}
+
+  /* === 05 HISTORY === */
+  .timeline{margin-top:80px;position:relative;}
+  .timeline-line{
+    position:absolute;left:0;right:0;top:14px;height:1px;background:var(--sand);display:none;
+  }
+  .timeline-line::after{
+    content:"";position:absolute;left:0;top:0;height:100%;background:var(--rust);width:0;
+    transition:width 1200ms var(--ease);
+  }
+  .timeline.in .timeline-line::after{width:100%;}
+  @media (min-width:768px){.timeline-line{display:block;}}
+  .timeline-grid{display:grid;grid-template-columns:1fr;gap:32px;}
+  @media (min-width:768px){.timeline-grid{grid-template-columns:repeat(5,1fr);gap:20px;}}
+  .milestone{position:relative;padding-top:0;opacity:0;transform:translateY(24px);transition:opacity 700ms var(--ease), transform 700ms var(--ease);}
+  .milestone.in{opacity:1;transform:translateY(0);}
+  @media (min-width:768px){
+    .milestone{padding-top:56px;}
+    .milestone::before{content:"";position:absolute;left:0;top:9px;width:11px;height:11px;background:var(--bone);border:1.5px solid var(--rust);border-radius:50%;}
+    .milestone::after{content:"";position:absolute;left:5px;top:14px;width:1px;height:32px;background:var(--sand);}
+  }
+  .milestone .year{font-family:var(--mono);font-size:13px;letter-spacing:0.18em;color:var(--rust);display:block;margin-bottom:14px;font-weight:500;}
+  .milestone .head{font-family:var(--display);font-weight:500;font-size:22px;line-height:1.05;letter-spacing:-0.02em;color:var(--iron);margin-bottom:8px;display:block;}
+  .milestone .event{font-family:var(--body);font-size:14px;color:var(--ash);line-height:1.5;max-width:26ch;display:block;}
+
+  /* === 06 QHSE === */
+  .qhse-grid{display:grid;grid-template-columns:1fr;gap:48px;margin-top:64px;}
+  @media (min-width:980px){.qhse-grid{grid-template-columns:1fr 1fr;gap:80px;}}
+  .qhse-grid .body p + p{margin-top:18px;}
+  .qhse-grid .body{max-width:48ch;}
+
+  .qhse-stats{
+    margin-top:64px;display:grid;grid-template-columns:repeat(2,1fr);gap:0;
+    border-top:1px solid var(--sand);border-bottom:1px solid var(--sand);
+  }
+  @media (min-width:768px){.qhse-stats{grid-template-columns:repeat(4,1fr);}}
+  .qhse-stats .s{padding:28px 24px;border-right:1px solid var(--sand);}
+  .qhse-stats .s:nth-child(2n){border-right:0;}
+  @media (min-width:768px){.qhse-stats .s{border-right:1px solid var(--sand);}.qhse-stats .s:nth-child(2n){border-right:1px solid var(--sand);}.qhse-stats .s:last-child{border-right:0;}}
+  .qhse-stats .s .v{font-family:var(--display);font-weight:var(--display-weight);font-size:var(--hero-stat-num);letter-spacing:var(--display-letter);color:var(--iron);line-height:1;}
+  .qhse-stats .s .v .unit{font-family:var(--mono);font-size:14px;color:var(--ash);margin-left:6px;letter-spacing:0.04em;font-weight:400;}
+  .qhse-stats .s .l{font-family:var(--mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--ash);margin-top:10px;}
+
+  /* === 07 CONTACT === */
+  .branches{display:grid;grid-template-columns:1fr;gap:1px;margin-top:64px;background:var(--sand);border:1px solid var(--sand);}
+  @media (min-width:768px){.branches{grid-template-columns:1fr 1fr;}}
+  .branch{background:var(--bone);padding:32px 28px;display:flex;flex-direction:column;gap:14px;text-decoration:none;color:inherit;transition:transform 340ms var(--ease), background 360ms var(--ease);position:relative;overflow:hidden;}
+  @media (min-width:768px){.branch{padding:40px 36px;}}
+  .branch:hover{transform:translateX(6px);background:var(--cream);}
+  .branch .role{font-family:var(--mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--ash);display:inline-flex;align-items:center;gap:10px;}
+  .branch .role .live{width:6px;height:6px;background:#3fb37f;border-radius:50%;display:inline-block;box-shadow:0 0 0 0 rgba(63,179,127,0.6);animation:livepulse 2.2s ease-out infinite;}
+  .branch .city-wrap{display:inline-flex;flex-direction:column;align-self:flex-start;}
+  .branch .city{font-family:var(--display);font-weight:500;font-size:clamp(28px,3.4vw,40px);letter-spacing:-0.022em;color:var(--iron);line-height:1;}
+  .branch .city-underline{height:1px;background:var(--rust);transform:scaleX(0);transform-origin:left;transition:transform 360ms var(--ease);}
+  .branch:hover .city-underline{transform:scaleX(1);}
+  .branch .info{display:flex;flex-direction:column;gap:8px;font-family:var(--mono);font-size:12.5px;color:var(--iron);margin-top:8px;letter-spacing:0.02em;}
+  .branch .info span{display:inline-flex;gap:12px;align-items:baseline;}
+  .branch .info span .label{color:var(--ash);width:18px;display:inline-block;font-size:10px;letter-spacing:0.16em;}
+
+  /* === FOOTER === */
+  .footer{border-top:1px solid var(--sand);background:var(--bone);padding:64px 0 32px;position:relative;}
+  .footer-mark{font-family:var(--display);font-weight:var(--display-weight);font-size:var(--footer-mark);line-height:0.85;letter-spacing:var(--display-letter);color:var(--iron);margin:0 0 48px;}
+  .footer-inner{display:grid;grid-template-columns:1fr;gap:24px;align-items:center;font-family:var(--mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ash);padding-top:24px;border-top:1px solid var(--sand);}
+  @media (min-width:768px){.footer-inner{grid-template-columns:1fr auto 1fr;}}
+  .footer-inner a{color:inherit;text-decoration:none;}
+  .footer-inner .center{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;}
+  .footer-inner .right{display:flex;justify-content:flex-end;}
+
+  /* === REVEAL === */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity 900ms var(--ease), transform 900ms var(--ease);}
+  .reveal.in{opacity:1;transform:translateY(0);}
+
+  /* === MOOD: Onyx specific overrides — dark mode for the whole page === */
+  html[data-mood="onyx"] body{background:var(--bone);color:var(--iron);}
+  html[data-mood="onyx"] ::selection{background:var(--rust);color:var(--cream);}
+  html[data-mood="onyx"] .transition-strip{
+    background:var(--charcoal);
+    border-bottom:1px solid var(--sand);
+  }
+  html[data-mood="onyx"] .transition-strip::before,
+  html[data-mood="onyx"] .transition-strip::after,
+  html[data-mood="onyx"] .transition-strip .horizon{display:none;}
+  html[data-mood="onyx"] .transition-strip .chapter{
+    background:var(--bone-2);color:var(--iron);border-color:var(--sand);
+  }
+  html[data-mood="onyx"] .transition-strip .coord-l,
+  html[data-mood="onyx"] .transition-strip .coord-r{color:rgba(239,233,219,0.55);}
+  html[data-mood="onyx"] .nav.solid{background:rgba(15,13,10,0.92);color:var(--iron);}
+  html[data-mood="onyx"] .market{background:var(--bone);}
+  html[data-mood="onyx"] .market::before{background:var(--bone-2);}
+  html[data-mood="onyx"] .branch{background:var(--bone);}
+  html[data-mood="onyx"] .branch:hover{background:var(--bone-2);}
+  html[data-mood="onyx"] .markets-grid{background:var(--sand);border-color:var(--sand);}
+  html[data-mood="onyx"] .branches{background:var(--sand);border-color:var(--sand);}
+  html[data-mood="onyx"] .footer{background:var(--bone);}
+  html[data-mood="onyx"] .grain{opacity:0.06;mix-blend-mode:screen;}
+  html[data-mood="onyx"] .nav.solid .brand .mark img{filter:none;}
+  html[data-mood="onyx"] .map-panel{background:#0F0D0A;}
+
+  /* === TYPE: Technical — uppercase headlines, tighter mono bodies === */
+  html[data-type="technical"] p,
+  html[data-type="technical"] .lead,
+  html[data-type="technical"] .hero-sub,
+  html[data-type="technical"] .service .desc,
+  html[data-type="technical"] .market .desc,
+  html[data-type="technical"] .milestone .event{letter-spacing:0;font-size:14px;line-height:1.55;}
+  html[data-type="technical"] h1,
+  html[data-type="technical"] h2,
+  html[data-type="technical"] h3,
+  html[data-type="technical"] h4,
+  html[data-type="technical"] .service .name,
+  html[data-type="technical"] .branch .city,
+  html[data-type="technical"] .market h3,
+  html[data-type="technical"] .quote .said{text-transform:uppercase;}
+
+  /* === TYPE: Editorial — italic accents on flourish text === */
+  html[data-type="editorial"] .hero h1 .accent{font-style:italic;font-weight:400;}
+  html[data-type="editorial"] .quote .said{font-style:italic;font-size:clamp(22px,2.6vw,32px);}
+  html[data-type="editorial"] .footer-mark{font-style:italic;font-weight:400;}
+
+  /* === TWEAKS PANEL === */
+  .tweaks{
+    position:fixed;bottom:20px;right:20px;z-index:120;
+    width:284px;padding:18px 18px 14px;
+    background:var(--bone);
+    border:1px solid var(--sand);
+    box-shadow:0 30px 60px -20px rgba(20,15,10,0.35);
+    font-family:'JetBrains Mono', ui-monospace, monospace;
+    color:var(--iron);
+  }
+  .tweaks[hidden]{display:none;}
+  .tweaks-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;}
+  .tweaks-head .title{font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:var(--iron);display:inline-flex;align-items:center;gap:10px;}
+  .tweaks-head .title .dot{width:6px;height:6px;background:var(--rust);border-radius:50%;}
+  .tweaks-head .close{appearance:none;background:transparent;border:0;color:var(--ash);cursor:pointer;width:26px;height:26px;display:grid;place-items:center;font-size:18px;line-height:1;}
+  .tweaks-head .close:hover{color:var(--rust);}
+  .t-section + .t-section{margin-top:14px;}
+  .t-label{font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--ash);display:block;margin-bottom:7px;}
+  .t-segments{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--sand);}
+  .t-segments button{
+    appearance:none;background:transparent;border:0;border-right:1px solid var(--sand);
+    padding:9px 4px;font:inherit;font-size:10.5px;letter-spacing:0.08em;text-transform:uppercase;
+    color:var(--ash);cursor:pointer;
+    transition:background 240ms var(--ease), color 200ms;
+  }
+  .t-segments button:last-child{border-right:0;}
+  .t-segments button:hover{color:var(--iron);}
+  .t-segments button.active{background:var(--rust);color:var(--cream);}
+  .tweaks-foot{margin-top:16px;padding-top:12px;border-top:1px solid var(--sand);font-size:9.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ash);display:flex;justify-content:space-between;align-items:center;}
+  .tweaks-foot .reset{appearance:none;background:transparent;border:0;color:var(--ash);cursor:pointer;font:inherit;letter-spacing:inherit;text-transform:inherit;padding:0;}
+  .tweaks-foot .reset:hover{color:var(--rust);}
+
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{transition:none !important;animation:none !important;}
+    .reveal,.stagger-words .word,.milestone{opacity:1;transform:none;}
+    .marquee-track{animation:none;}
+  }
+</style>
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="progress-rail" aria-hidden="true"><div class="bar" id="progressBar"></div></div>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="brand">
+      <span class="mark"><img src="assets/jmp-logo.png" alt="JMP" width="42" height="42" /></span>
+      <span class="word" data-i18n="brand">John M. Phillips</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#company" data-i18n="nav.company">Company</a>
+      <a href="#services" data-i18n="nav.services">Services</a>
+      <a href="#rentals" data-i18n="nav.rentals">Rentals</a>
+      <a href="#markets" data-i18n="nav.markets">Markets</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
+    </nav>
+    <div class="nav-right">
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button data-lang="en" class="active"><span>EN</span></button>
+        <button data-lang="es"><span>ES</span></button>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <div class="mobile-menu-top">
+    <span class="brand"><span class="mark"><img src="assets/jmp-logo.png" alt="JMP" width="42" height="42" /></span> <span class="word" data-i18n="brand">John M. Phillips</span></span>
+    <button class="hamburger" id="hamburgerClose" aria-label="Close"><span style="transform:rotate(45deg) translate(2px,3px)"></span><span style="transform:rotate(-45deg) translate(2px,-3px)"></span></button>
+  </div>
+  <nav>
+    <a href="#company" data-i18n="nav.company">Company</a>
+    <a href="#services" data-i18n="nav.services">Services</a>
+    <a href="#rentals" data-i18n="nav.rentals">Rentals</a>
+    <a href="#markets" data-i18n="nav.markets">Markets</a>
+    <a href="#contact" data-i18n="nav.contact">Contact</a>
+  </nav>
+  <div class="meta"><span data-i18n="footer.copy">© JMP · 1952–2026 · Signal Hill, CA</span></div>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-media" id="heroMedia">
+    <img class="poster" id="heroPoster" src="assets/hero-poster.jpg" alt="" />
+    <canvas class="frames" id="heroCanvas" aria-hidden="true"></canvas>
+    <video id="heroVideo" preload="auto" muted playsinline autoplay aria-hidden="true">
+      <source src="assets/hero-loop.mp4" type="video/mp4" />
+    </video>
+  </div>
+  <div class="hero-vignette" aria-hidden="true"></div>
+
+  <aside class="hero-rule" aria-hidden="true">
+    <div class="tick top"><span class="line"></span><span>33.7710° N</span></div>
+    <div class="tick mid"><span class="line"></span><span>Signal Hill / Yard 03</span></div>
+    <div class="tick bot"><span class="line"></span><span data-i18n="hero.now">Live · 03 active rigs</span></div>
+  </aside>
+
+  <div class="hero-status">
+    <span class="pulse" aria-hidden="true"></span>
+    <span data-i18n="hero.status">Field crews active · Vaca Muerta · 26.05.16</span>
+  </div>
+
+  <div class="hero-inner" id="heroInner">
+    <div class="hero-eyebrow"><span class="hr"></span><span>JMP — <span data-i18n="hero.since">EST. 1952</span></span></div>
+    <h1 class="stagger-words" id="heroH1">
+      <span class="line"><span class="word" data-i18n="hero.h1.l1">Independent</span> <span class="word" data-i18n="hero.h1.l1b">energy</span></span><br/>
+      <span class="line"><span class="word" data-i18n="hero.h1.l2">services.</span></span><br/>
+      <span class="line"><span class="word accent" data-i18n="hero.h1.l3a">Since</span> <span class="word accent" data-i18n="hero.h1.l3b">1952.</span></span>
+    </h1>
+    <p class="hero-sub" data-i18n="hero.sub">
+      Field-tested oilfield services and equipment rentals across four countries —
+      built on three generations of operator relationships and a refusal to overbuild.
+    </p>
+
+    <div class="hero-stats reveal">
+      <div class="stat"><span class="num">74</span><span class="lbl" data-i18n="hero.s1">YEARS IN OPERATION</span></div>
+      <div class="stat"><span class="num">4</span><span class="lbl" data-i18n="hero.s2">COUNTRIES · ONE STANDARD</span></div>
+      <div class="stat"><span class="num">ISO×3</span><span class="lbl" data-i18n="hero.s3">9001 · 14001 · 45001</span></div>
+    </div>
+
+    <div class="hero-bottom-row">
+      <a href="#services" class="hero-cta"><span data-i18n="hero.cta">See our services</span><span class="arrow">→</span></a>
+      <div class="hero-coords">
+        33.7710° N · 118.1672° W<br/>
+        <span data-i18n="hero.signal">SIGNAL HILL, CA — HEADQUARTERS</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-cue"><span data-i18n="hero.scroll">Scroll</span><span class="line"></span></div>
+</section>
+
+<div class="transition-strip" aria-hidden="true">
+  <span class="coord-l">— 33.7710° N · 118.1672° W</span>
+  <span class="chapter"><span class="dot"></span><span>01 / 07 — <span data-i18n="sect.company">Company</span></span></span>
+  <span class="coord-r">SIGNAL HILL → SANTIAGO · 8,572 KM —</span>
+  <div class="horizon"></div>
+</div>
+
+<!-- 01 · COMPANY -->
+<section id="company" style="padding-top:48px;">
+  <div class="container">
+    <div class="chapter-head reveal">
+      <div class="chapter-row">
+        <span class="eyebrow"><span class="dot"></span><span class="num">01</span><span class="bar"></span><span data-i18n="sect.company">COMPANY</span></span>
+        <span class="eyebrow"><span data-i18n="company.aside">A third-generation operator</span></span>
+      </div>
+      <h2 class="stagger-words" id="introH">
+        <span class="word" data-i18n="intro.h.l1">Independent.</span><br/>
+        <span class="word" data-i18n="intro.h.l2">Operator-owned.</span><br/>
+        <span class="word" data-i18n="intro.h.l3">Quietly relentless.</span>
+      </h2>
+    </div>
+
+    <div class="intro-grid reveal">
+      <div></div>
+      <div class="body">
+        <p class="lead" data-i18n="intro.p1">JMP is a third-generation oilfield services company headquartered in Signal Hill, California, with field operations in Santiago, Neuquén, and Bogotá.</p>
+        <p class="muted" data-i18n="intro.p2">We move slowly when it matters and quickly when it counts. Our customers are operators who want a single, accountable partner — not a vendor who disappears between jobs.</p>
+      </div>
+    </div>
+
+    <figure class="quote reveal">
+      <figcaption class="who" data-i18n="quote.who">FIELD<br/>NOTES</figcaption>
+      <blockquote class="said" data-i18n="quote.said">“We never grew faster than we could supervise. That decision has cost us a lot of contracts and exactly zero workovers.”</blockquote>
+      <span class="cite"><span data-i18n="quote.cite1">JOHN M. PHILLIPS III</span><br/><span data-i18n="quote.cite2">PRINCIPAL · 2019</span></span>
+    </figure>
+  </div>
+</section>
+
+<!-- 02 · SERVICES -->
+<section id="services" style="padding-top:0;">
+  <div class="container">
+    <div class="chapter-head reveal">
+      <div class="chapter-row">
+        <span class="eyebrow"><span class="dot"></span><span class="num">02</span><span class="bar"></span><span data-i18n="sect.services">SERVICES</span></span>
+        <span class="eyebrow"><span data-i18n="services.aside">06 disciplines · one field crew</span></span>
+      </div>
+      <h2 class="stagger-words">
+        <span class="word" data-i18n="services.h.l1">Six disciplines.</span><br/>
+        <span class="word" data-i18n="services.h.l2">One field crew.</span>
+      </h2>
+    </div>
+
+    <div class="services-list">
+      <a class="service" href="#contact">
+        <span class="num">01 / 06</span>
+        <div class="name-block">
+          <span class="name" data-i18n="srv.1.name">Well intervention</span>
+          <span class="underline"></span>
+          <p class="desc" data-i18n="srv.1.desc">Wireline, slickline, and coiled-tubing operations with crews who have logged decades on Permian and Vaca Muerta formations alike.</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+      <a class="service right" href="#contact">
+        <span class="num">02 / 06</span>
+        <div class="name-block">
+          <span class="name" data-i18n="srv.2.name">Production testing</span>
+          <span class="underline"></span>
+          <p class="desc" data-i18n="srv.2.desc">Surface well testing, separator packages, and flowback with calibrated data hand-off that integrates with your existing reporting stack.</p>
+        </div>
+        <span class="arrow">←</span>
+      </a>
+      <a class="service" href="#contact">
+        <span class="num">03 / 06</span>
+        <div class="name-block">
+          <span class="name" data-i18n="srv.3.name">Cementing &amp; stimulation</span>
+          <span class="underline"></span>
+          <p class="desc" data-i18n="srv.3.desc">Primary and remedial cementing, acid stimulation, and bridge plug operations — designed in-house, executed by our own crew.</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+      <a class="service right" href="#contact">
+        <span class="num">04 / 06</span>
+        <div class="name-block">
+          <span class="name" data-i18n="srv.4.name">Plug &amp; abandonment</span>
+          <span class="underline"></span>
+          <p class="desc" data-i18n="srv.4.desc">Onshore P&amp;A programs with regulator-grade documentation. Decommission once, properly, with no return visits.</p>
+        </div>
+        <span class="arrow">←</span>
+      </a>
+      <a class="service" href="#contact">
+        <span class="num">05 / 06</span>
+        <div class="name-block">
+          <span class="name" data-i18n="srv.5.name">Workover supervision</span>
+          <span class="underline"></span>
+          <p class="desc" data-i18n="srv.5.desc">Day-rate company-man services with bilingual supervisors and a culture of writing things down before the morning meeting.</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+      <a class="service right" href="#contact">
+        <span class="num">06 / 06</span>
+        <div class="name-block">
+          <span class="name" data-i18n="srv.6.name">Logistics &amp; mobilisation</span>
+          <span class="underline"></span>
+          <p class="desc" data-i18n="srv.6.desc">Cross-border equipment moves, customs liaison, and base-camp setup for new pad development in remote acreage.</p>
+        </div>
+        <span class="arrow">←</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 03 · RENTALS -->
+<section id="rentals" style="padding-top:0;">
+  <div class="container">
+    <div class="chapter-head reveal">
+      <div class="chapter-row">
+        <span class="eyebrow"><span class="dot"></span><span class="num">03</span><span class="bar"></span><span data-i18n="sect.rentals">RENTALS</span></span>
+        <span class="eyebrow"><span data-i18n="rentals.aside">Yard-ready · OEM-maintained</span></span>
+      </div>
+      <h2 class="stagger-words">
+        <span class="word" data-i18n="rentals.h.l1">Equipment</span><br/>
+        <span class="word" data-i18n="rentals.h.l2">on the ground</span><br/>
+        <span class="word" data-i18n="rentals.h.l3">in 48 hours.</span>
+      </h2>
+    </div>
+  </div>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track" id="marqueeTrack">
+      <!-- duplicated in JS for seamless loop -->
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="rentals-meta reveal">
+      <div class="col"><strong data-i18n="rentals.m1.l">Fleet size</strong><span class="v">312</span><span data-i18n="rentals.m1.s">UNITS · 04 YARDS</span></div>
+      <div class="col"><strong data-i18n="rentals.m2.l">Mobilisation</strong><span class="v">48h</span><span data-i18n="rentals.m2.s">REGIONAL · DOOR TO PAD</span></div>
+      <div class="col"><strong data-i18n="rentals.m3.l">Utilisation 2025</strong><span class="v">87.4%</span><span data-i18n="rentals.m3.s">YTD · ROLLING AVERAGE</span></div>
+    </div>
+    <div class="chips reveal">
+      <span class="chip" data-i18n="rentals.c1">BOP Stacks</span>
+      <span class="chip" data-i18n="rentals.c2">Wellheads</span>
+      <span class="chip" data-i18n="rentals.c3">Test Separators</span>
+      <span class="chip" data-i18n="rentals.c4">Flowback Tanks</span>
+      <span class="chip" data-i18n="rentals.c5">Pressure Pumps</span>
+      <span class="chip" data-i18n="rentals.c6">Nitrogen Units</span>
+      <span class="chip" data-i18n="rentals.c7">Coil Reels</span>
+    </div>
+  </div>
+</section>
+
+<!-- 04 · MARKETS -->
+<section id="markets" style="padding-top:0;">
+  <div class="container">
+    <div class="chapter-head reveal">
+      <div class="chapter-row">
+        <span class="eyebrow"><span class="dot"></span><span class="num">04</span><span class="bar"></span><span data-i18n="sect.markets">MARKETS</span></span>
+        <span class="eyebrow"><span data-i18n="markets.aside">Hemisphere · north to south</span></span>
+      </div>
+      <h2 class="stagger-words">
+        <span class="word" data-i18n="markets.h.l1">Four countries.</span><br/>
+        <span class="word" data-i18n="markets.h.l2">One standard.</span>
+      </h2>
+    </div>
+
+    <div class="markets-wrap reveal">
+      <div class="markets-grid">
+        <div class="market">
+          <span class="meta"><strong>01</strong> <span data-i18n="mk.1.tag">PRIMARY</span></span>
+          <div><h3 data-i18n="mk.1.name">Oil &amp; Gas</h3><p class="desc" data-i18n="mk.1.desc">Onshore conventional and unconventional. Active jobs in Wilmington, Vaca Muerta, and the Llanos basin.</p></div>
+        </div>
+        <div class="market">
+          <span class="meta"><strong>02</strong> <span data-i18n="mk.2.tag">EXPANDING</span></span>
+          <div><h3 data-i18n="mk.2.name">Geothermal</h3><p class="desc" data-i18n="mk.2.desc">High-temperature wellbore services for closed-loop and EGS systems across the Western US.</p></div>
+        </div>
+        <div class="market">
+          <span class="meta"><strong>03</strong> <span data-i18n="mk.3.tag">SELECT</span></span>
+          <div><h3 data-i18n="mk.3.name">Carbon storage</h3><p class="desc" data-i18n="mk.3.desc">Class VI injection well services and long-duration monitoring instrumentation.</p></div>
+        </div>
+        <div class="market">
+          <span class="meta"><strong>04</strong> <span data-i18n="mk.4.tag">SUPPORT</span></span>
+          <div><h3 data-i18n="mk.4.name">Water &amp; brine</h3><p class="desc" data-i18n="mk.4.desc">Saltwater disposal well construction, lithium brine pilots, and produced-water reuse.</p></div>
+        </div>
+      </div>
+
+      <!-- Map panel -->
+      <div class="map-panel">
+        <span class="label">FIELD MAP / 2026.Q2</span>
+        <svg viewBox="0 0 400 460" preserveAspectRatio="xMidYMid meet" aria-label="JMP office locations across the Americas">
+          <!-- Stylised Americas outline -->
+          <path d="M 120 60 L 160 50 L 195 70 L 230 70 L 250 90 L 240 120 L 220 130 L 215 150 L 195 165 L 175 165 L 165 180 L 175 200 L 195 215 L 200 240 L 230 270 L 240 300 L 248 340 L 240 380 L 220 410 L 200 430 L 180 425 L 175 400 L 185 360 L 175 330 L 158 305 L 145 270 L 132 235 L 125 195 L 115 160 L 110 120 L 115 85 Z" class="map-line"/>
+          <!-- Connecting lines (HQ → field bases) -->
+          <line x1="142" y1="115" x2="195" y2="350" class="map-link"/>
+          <line x1="142" y1="115" x2="225" y2="295" class="map-link"/>
+          <line x1="142" y1="115" x2="172" y2="200" class="map-link"/>
+          <!-- Signal Hill (HQ) -->
+          <g transform="translate(142 115)">
+            <circle r="14" class="map-pulse"/>
+            <circle r="4.5" class="map-dot"/>
+          </g>
+          <text x="155" y="112" class="map-text hq">SIGNAL HILL</text>
+          <text x="155" y="125" class="map-coord">33.77° N · 118.17° W · HQ</text>
+          <!-- Bogotá -->
+          <g transform="translate(172 200)">
+            <circle r="10" class="map-pulse"/>
+            <circle r="3.5" class="map-dot"/>
+          </g>
+          <text x="184" y="197" class="map-text">BOGOTÁ</text>
+          <text x="184" y="209" class="map-coord">04.71° N · 74.07° W</text>
+          <!-- Santiago -->
+          <g transform="translate(225 295)">
+            <circle r="10" class="map-pulse"/>
+            <circle r="3.5" class="map-dot"/>
+          </g>
+          <text x="160" y="298" class="map-text" text-anchor="end">SANTIAGO</text>
+          <text x="160" y="310" class="map-coord" text-anchor="end">33.45° S · 70.67° W</text>
+          <text x="237" y="293" class="map-text">CL</text>
+          <!-- Neuquén -->
+          <g transform="translate(195 350)">
+            <circle r="11" class="map-pulse"/>
+            <circle r="3.5" class="map-dot"/>
+          </g>
+          <text x="208" y="350" class="map-text">NEUQUÉN</text>
+          <text x="208" y="362" class="map-coord">38.95° S · 68.06° W</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 · HISTORY -->
+<section id="history" style="padding-top:0;">
+  <div class="container">
+    <div class="chapter-head reveal">
+      <div class="chapter-row">
+        <span class="eyebrow"><span class="dot"></span><span class="num">05</span><span class="bar"></span><span data-i18n="sect.history">HISTORY</span></span>
+        <span class="eyebrow"><span data-i18n="hist.aside">1952 → 2026 · 74 yrs</span></span>
+      </div>
+      <h2 class="stagger-words">
+        <span class="word" data-i18n="hist.h.l1">Seventy-four years</span><br/>
+        <span class="word" data-i18n="hist.h.l2">of finishing the job.</span>
+      </h2>
+    </div>
+
+    <div class="timeline" id="timeline">
+      <div class="timeline-line"></div>
+      <div class="timeline-grid">
+        <div class="milestone"><span class="year">1952</span><span class="head" data-i18n="ms.1.h">Bay 01 opens</span><span class="event" data-i18n="ms.1">John M. Phillips opens a single-bay well-service shop in Signal Hill.</span></div>
+        <div class="milestone"><span class="year">1978</span><span class="head" data-i18n="ms.2.h">Patagonia, first ship</span><span class="event" data-i18n="ms.2">First international job — workover supervision in Comodoro Rivadavia, Argentina.</span></div>
+        <div class="milestone"><span class="year">1996</span><span class="head" data-i18n="ms.3.h">Andes base</span><span class="event" data-i18n="ms.3">Bogotá field base established. Rental fleet crosses 100 units.</span></div>
+        <div class="milestone"><span class="year">2014</span><span class="head" data-i18n="ms.4.h">ISO tri-norm</span><span class="event" data-i18n="ms.4">ISO 9001, 14001 and 45001 awarded across all bases simultaneously.</span></div>
+        <div class="milestone"><span class="year">2026</span><span class="head" data-i18n="ms.5.h">Third generation</span><span class="event" data-i18n="ms.5">Third generation takes ownership. Geothermal and carbon-storage divisions launch.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 · QHSE -->
+<section id="qhse" style="padding-top:0;">
+  <div class="container">
+    <div class="chapter-head reveal">
+      <div class="chapter-row">
+        <span class="eyebrow"><span class="dot"></span><span class="num">06</span><span class="bar"></span>QHSE</span>
+        <span class="eyebrow"><span data-i18n="qhse.aside">Audited annually · third party</span></span>
+      </div>
+    </div>
+
+    <div class="qhse-grid">
+      <h2 class="stagger-words">
+        <span class="word" data-i18n="qhse.h.l1">Safety isn’t</span><br/>
+        <span class="word" data-i18n="qhse.h.l2">a department.</span>
+      </h2>
+      <div class="body reveal">
+        <p data-i18n="qhse.p1">Every JMP supervisor holds stop-work authority — and we mean it. Our integrated Quality, Health, Safety and Environment program is audited annually by a third party and reviewed weekly in the field.</p>
+        <p class="muted" data-i18n="qhse.p2">Below: live operational metrics. Audit logs, full TRIR breakdowns, and certification documents available on request.</p>
+      </div>
+    </div>
+
+    <div class="qhse-stats reveal">
+      <div class="s"><div class="v">0.41<span class="unit">TRIR</span></div><div class="l" data-i18n="qhse.s1">RECORDABLE INCIDENT RATE · 2025</div></div>
+      <div class="s"><div class="v">1,847<span class="unit">DAYS</span></div><div class="l" data-i18n="qhse.s2">LTI-FREE · HQ + CL</div></div>
+      <div class="s"><div class="v">100<span class="unit">%</span></div><div class="l" data-i18n="qhse.s3">AUDIT PASS · 2014–2025</div></div>
+      <div class="s"><div class="v">14<span class="unit">CERTS</span></div><div class="l" data-i18n="qhse.s4">OPERATOR-SIDE QUALIFICATIONS</div></div>
+    </div>
+
+    <div class="chips reveal" style="margin-top:48px;">
+      <span class="chip iso">ISO 9001 · <span data-i18n="qhse.iso1">Quality</span></span>
+      <span class="chip iso">ISO 14001 · <span data-i18n="qhse.iso2">Environment</span></span>
+      <span class="chip iso">ISO 45001 · <span data-i18n="qhse.iso3">Health &amp; Safety</span></span>
+      <span class="chip iso">API Q2 · <span data-i18n="qhse.iso4">Service Quality</span></span>
+    </div>
+  </div>
+</section>
+
+<!-- 07 · CONTACT -->
+<section id="contact" style="padding-top:0;">
+  <div class="container">
+    <div class="chapter-head reveal">
+      <div class="chapter-row">
+        <span class="eyebrow"><span class="dot"></span><span class="num">07</span><span class="bar"></span><span data-i18n="sect.contact">CONTACT</span></span>
+        <span class="eyebrow"><span data-i18n="ct.aside">No forms · direct lines</span></span>
+      </div>
+      <h2 class="stagger-words">
+        <span class="word" data-i18n="ct.h.l1">Talk to a</span><br/>
+        <span class="word" data-i18n="ct.h.l2">field supervisor.</span>
+      </h2>
+      <p class="lead muted" style="max-width:55ch;" data-i18n="ct.p">No forms, no qualifying questionnaires. The phone numbers below ring directly to the person who would run your job.</p>
+    </div>
+
+    <div class="branches reveal">
+      <a class="branch" href="tel:+15625550152">
+        <span class="role"><span class="live"></span><span data-i18n="ct.b1.role">HEADQUARTERS · USA</span></span>
+        <span class="city-wrap"><span class="city">Signal Hill</span><span class="city-underline"></span></span>
+        <div class="info">
+          <span><span class="label">TEL</span>+1 (562) 847-1928</span>
+          <span><span class="label">MAIL</span>signalhill@jmp.example</span>
+          <span><span class="label">ADDR</span>2418 E Willow St, Signal Hill CA 90755</span>
+          <span><span class="label">SUP</span>R. Aguirre · Operations principal</span>
+        </div>
+      </a>
+      <a class="branch" href="tel:+5622476082">
+        <span class="role"><span class="live"></span><span data-i18n="ct.b2.role">REGIONAL · CHILE</span></span>
+        <span class="city-wrap"><span class="city">Santiago</span><span class="city-underline"></span></span>
+        <div class="info">
+          <span><span class="label">TEL</span>+56 2 2247 6082</span>
+          <span><span class="label">MAIL</span>santiago@jmp.example</span>
+          <span><span class="label">ADDR</span>Av. Apoquindo 4731, Las Condes</span>
+          <span><span class="label">SUP</span>M. Vergara · South Cone director</span>
+        </div>
+      </a>
+      <a class="branch" href="tel:+542994443917">
+        <span class="role"><span class="live"></span><span data-i18n="ct.b3.role">FIELD BASE · ARGENTINA</span></span>
+        <span class="city-wrap"><span class="city">Neuquén</span><span class="city-underline"></span></span>
+        <div class="info">
+          <span><span class="label">TEL</span>+54 299 444 3917</span>
+          <span><span class="label">MAIL</span>neuquen@jmp.example</span>
+          <span><span class="label">ADDR</span>Parque Industrial, Añelo Lote 14</span>
+          <span><span class="label">SUP</span>D. Cisneros · Base manager</span>
+        </div>
+      </a>
+      <a class="branch" href="tel:+5716381240">
+        <span class="role"><span class="live"></span><span data-i18n="ct.b4.role">FIELD BASE · COLOMBIA</span></span>
+        <span class="city-wrap"><span class="city">Bogotá</span><span class="city-underline"></span></span>
+        <div class="info">
+          <span><span class="label">TEL</span>+57 1 638 1240</span>
+          <span><span class="label">MAIL</span>bogota@jmp.example</span>
+          <span><span class="label">ADDR</span>Cra. 7 #71-21 Torre B, Chapinero</span>
+          <span><span class="label">SUP</span>L. Beltrán · Llanos operations lead</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-mark">JMP / 1952 — 2026</div>
+    <div class="footer-inner">
+      <div class="left" data-i18n="footer.copy">© JMP · 1952–2026 · Signal Hill, CA</div>
+      <div class="center">
+        <a href="#" data-i18n="footer.linkedin">LinkedIn</a>
+        <a href="#" data-i18n="footer.careers">Careers</a>
+        <a href="#" data-i18n="footer.press">Press</a>
+        <a href="#" data-i18n="footer.privacy">Privacy</a>
+      </div>
+      <div class="right">
+        <div class="lang-toggle" role="group" aria-label="Language" style="color:var(--iron);">
+          <button data-lang="en" class="active"><span>EN</span></button>
+          <button data-lang="es"><span>ES</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- TWEAKS PANEL -->
+<aside class="tweaks" id="tweaks" hidden aria-label="Design tweaks">
+  <div class="tweaks-head">
+    <span class="title"><span class="dot"></span>TWEAKS</span>
+    <button class="close" id="tweaksClose" aria-label="Close tweaks">×</button>
+  </div>
+  <div class="t-section">
+    <span class="t-label">Mood</span>
+    <div class="t-segments" data-tweak="mood">
+      <button data-value="rust">Rust</button>
+      <button data-value="steel">Steel</button>
+      <button data-value="onyx">Onyx</button>
+    </div>
+  </div>
+  <div class="t-section">
+    <span class="t-label">Type</span>
+    <div class="t-segments" data-tweak="type">
+      <button data-value="industrial">Industrial</button>
+      <button data-value="editorial">Editorial</button>
+      <button data-value="technical">Technical</button>
+    </div>
+  </div>
+  <div class="t-section">
+    <span class="t-label">Density</span>
+    <div class="t-segments" data-tweak="density">
+      <button data-value="cinematic">Cinematic</button>
+      <button data-value="editorial">Editorial</button>
+      <button data-value="cockpit">Cockpit</button>
+    </div>
+  </div>
+  <div class="tweaks-foot">
+    <span>JMP / DESIGN-OS</span>
+    <button class="reset" id="tweaksReset">Reset</button>
+  </div>
+</aside>
+
+<script>
+/* ---------- Tweaks (mood / type / density) ---------- */
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "mood": "rust",
+  "type": "industrial",
+  "density": "cinematic"
+}/*EDITMODE-END*/;
+
+const tweakState = Object.assign({}, TWEAK_DEFAULTS);
+
+function applyTweaks(){
+  document.documentElement.dataset.mood = tweakState.mood;
+  document.documentElement.dataset.type = tweakState.type;
+  document.documentElement.dataset.density = tweakState.density;
+  document.querySelectorAll(".tweaks .t-segments").forEach(group=>{
+    const key = group.dataset.tweak;
+    group.querySelectorAll("button").forEach(btn=>{
+      btn.classList.toggle("active", btn.dataset.value === tweakState[key]);
+    });
+  });
+}
+applyTweaks();
+
+function setTweak(key, value){
+  if(tweakState[key] === value) return;
+  tweakState[key] = value;
+  applyTweaks();
+  try{
+    window.parent.postMessage({type:"__edit_mode_set_keys", edits:{[key]: value}}, "*");
+  }catch(e){}
+}
+
+document.querySelectorAll(".tweaks .t-segments button").forEach(btn=>{
+  btn.addEventListener("click", ()=>{
+    setTweak(btn.parentElement.dataset.tweak, btn.dataset.value);
+  });
+});
+
+/* Edit-mode protocol: register listener FIRST, then announce availability. */
+const tweaksEl = document.getElementById("tweaks");
+window.addEventListener("message", (e)=>{
+  const d = e.data;
+  if(!d || typeof d !== "object") return;
+  if(d.type === "__activate_edit_mode"){ tweaksEl.hidden = false; }
+  else if(d.type === "__deactivate_edit_mode"){ tweaksEl.hidden = true; }
+});
+try{ window.parent.postMessage({type:"__edit_mode_available"}, "*"); }catch(e){}
+
+document.getElementById("tweaksClose").addEventListener("click", ()=>{
+  tweaksEl.hidden = true;
+  try{ window.parent.postMessage({type:"__edit_mode_dismissed"}, "*"); }catch(e){}
+});
+document.getElementById("tweaksReset").addEventListener("click", ()=>{
+  setTweak("mood", "rust");
+  setTweak("type", "industrial");
+  setTweak("density", "cinematic");
+});
+
+<!-- end tweaks --></script>
+
+<script>
+/* ---------- i18n ---------- */
+const i18n = {
+  en: {
+    "brand":"John M. Phillips",
+    "nav.company":"Company","nav.services":"Services","nav.rentals":"Rentals","nav.markets":"Markets","nav.contact":"Contact",
+    "hero.since":"EST. 1952","hero.status":"Field crews active · Vaca Muerta · 26.05.16","hero.now":"Live · 03 active rigs",
+    "hero.h1.l1":"Independent","hero.h1.l1b":"energy","hero.h1.l2":"services.","hero.h1.l3a":"Since","hero.h1.l3b":"1952.",
+    "hero.sub":"Field-tested oilfield services and equipment rentals across four countries — built on three generations of operator relationships and a refusal to overbuild.",
+    "hero.s1":"YEARS IN OPERATION","hero.s2":"COUNTRIES · ONE STANDARD","hero.s3":"9001 · 14001 · 45001",
+    "hero.cta":"See our services","hero.signal":"SIGNAL HILL, CA — HEADQUARTERS","hero.scroll":"Scroll",
+    "sect.company":"COMPANY","company.aside":"A third-generation operator",
+    "intro.h.l1":"Independent.","intro.h.l2":"Operator-owned.","intro.h.l3":"Quietly relentless.",
+    "intro.p1":"JMP is a third-generation oilfield services company headquartered in Signal Hill, California, with field operations in Santiago, Neuquén, and Bogotá.",
+    "intro.p2":"We move slowly when it matters and quickly when it counts. Our customers are operators who want a single, accountable partner — not a vendor who disappears between jobs.",
+    "quote.who":"FIELD NOTES","quote.said":"“We never grew faster than we could supervise. That decision has cost us a lot of contracts and exactly zero workovers.”","quote.cite1":"JOHN M. PHILLIPS III","quote.cite2":"PRINCIPAL · 2019",
+    "sect.services":"SERVICES","services.aside":"06 disciplines · one field crew",
+    "services.h.l1":"Six disciplines.","services.h.l2":"One field crew.",
+    "srv.1.name":"Well intervention","srv.1.desc":"Wireline, slickline, and coiled-tubing operations with crews who have logged decades on Permian and Vaca Muerta formations alike.",
+    "srv.2.name":"Production testing","srv.2.desc":"Surface well testing, separator packages, and flowback with calibrated data hand-off that integrates with your existing reporting stack.",
+    "srv.3.name":"Cementing & stimulation","srv.3.desc":"Primary and remedial cementing, acid stimulation, and bridge plug operations — designed in-house, executed by our own crew.",
+    "srv.4.name":"Plug & abandonment","srv.4.desc":"Onshore P&A programs with regulator-grade documentation. Decommission once, properly, with no return visits.",
+    "srv.5.name":"Workover supervision","srv.5.desc":"Day-rate company-man services with bilingual supervisors and a culture of writing things down before the morning meeting.",
+    "srv.6.name":"Logistics & mobilisation","srv.6.desc":"Cross-border equipment moves, customs liaison, and base-camp setup for new pad development in remote acreage.",
+    "sect.rentals":"RENTALS","rentals.aside":"Yard-ready · OEM-maintained",
+    "rentals.h.l1":"Equipment","rentals.h.l2":"on the ground","rentals.h.l3":"in 48 hours.",
+    "rentals.m1.l":"Fleet size","rentals.m1.s":"UNITS · 04 YARDS","rentals.m2.l":"Mobilisation","rentals.m2.s":"REGIONAL · DOOR TO PAD","rentals.m3.l":"Utilisation 2025","rentals.m3.s":"YTD · ROLLING AVERAGE",
+    "rentals.c1":"BOP Stacks","rentals.c2":"Wellheads","rentals.c3":"Test Separators","rentals.c4":"Flowback Tanks","rentals.c5":"Pressure Pumps","rentals.c6":"Nitrogen Units","rentals.c7":"Coil Reels",
+    "sect.markets":"MARKETS","markets.aside":"Hemisphere · north to south",
+    "markets.h.l1":"Four countries.","markets.h.l2":"One standard.",
+    "mk.1.tag":"PRIMARY","mk.1.name":"Oil & Gas","mk.1.desc":"Onshore conventional and unconventional. Active jobs in Wilmington, Vaca Muerta, and the Llanos basin.",
+    "mk.2.tag":"EXPANDING","mk.2.name":"Geothermal","mk.2.desc":"High-temperature wellbore services for closed-loop and EGS systems across the Western US.",
+    "mk.3.tag":"SELECT","mk.3.name":"Carbon storage","mk.3.desc":"Class VI injection well services and long-duration monitoring instrumentation.",
+    "mk.4.tag":"SUPPORT","mk.4.name":"Water & brine","mk.4.desc":"Saltwater disposal well construction, lithium brine pilots, and produced-water reuse.",
+    "sect.history":"HISTORY","hist.aside":"1952 → 2026 · 74 yrs",
+    "hist.h.l1":"Seventy-four years","hist.h.l2":"of finishing the job.",
+    "ms.1.h":"Bay 01 opens","ms.1":"John M. Phillips opens a single-bay well-service shop in Signal Hill.",
+    "ms.2.h":"Patagonia, first ship","ms.2":"First international job — workover supervision in Comodoro Rivadavia, Argentina.",
+    "ms.3.h":"Andes base","ms.3":"Bogotá field base established. Rental fleet crosses 100 units.",
+    "ms.4.h":"ISO tri-norm","ms.4":"ISO 9001, 14001 and 45001 awarded across all bases simultaneously.",
+    "ms.5.h":"Third generation","ms.5":"Third generation takes ownership. Geothermal and carbon-storage divisions launch.",
+    "qhse.aside":"Audited annually · third party",
+    "qhse.h.l1":"Safety isn’t","qhse.h.l2":"a department.",
+    "qhse.p1":"Every JMP supervisor holds stop-work authority — and we mean it. Our integrated Quality, Health, Safety and Environment program is audited annually by a third party and reviewed weekly in the field.",
+    "qhse.p2":"Below: live operational metrics. Audit logs, full TRIR breakdowns, and certification documents available on request.",
+    "qhse.s1":"RECORDABLE INCIDENT RATE · 2025","qhse.s2":"LTI-FREE · HQ + CL","qhse.s3":"AUDIT PASS · 2014–2025","qhse.s4":"OPERATOR-SIDE QUALIFICATIONS",
+    "qhse.iso1":"Quality","qhse.iso2":"Environment","qhse.iso3":"Health & Safety","qhse.iso4":"Service Quality",
+    "sect.contact":"CONTACT","ct.aside":"No forms · direct lines",
+    "ct.h.l1":"Talk to a","ct.h.l2":"field supervisor.",
+    "ct.p":"No forms, no qualifying questionnaires. The phone numbers below ring directly to the person who would run your job.",
+    "ct.b1.role":"HEADQUARTERS · USA","ct.b2.role":"REGIONAL · CHILE","ct.b3.role":"FIELD BASE · ARGENTINA","ct.b4.role":"FIELD BASE · COLOMBIA",
+    "footer.copy":"© JMP · 1952–2026 · Signal Hill, CA","footer.linkedin":"LinkedIn","footer.careers":"Careers","footer.press":"Press","footer.privacy":"Privacy"
+  },
+  es: {
+    "brand":"John M. Phillips",
+    "nav.company":"Compañía","nav.services":"Servicios","nav.rentals":"Equipos","nav.markets":"Mercados","nav.contact":"Contacto",
+    "hero.since":"DESDE 1952","hero.status":"Cuadrillas activas · Vaca Muerta · 26.05.16","hero.now":"En vivo · 03 equipos activos",
+    "hero.h1.l1":"Servicios","hero.h1.l1b":"energéticos","hero.h1.l2":"independientes.","hero.h1.l3a":"Desde","hero.h1.l3b":"1952.",
+    "hero.sub":"Servicios petroleros y alquiler de equipos probados en campo en cuatro países — sobre tres generaciones de relaciones con operadores y el rechazo a sobredimensionar.",
+    "hero.s1":"AÑOS EN OPERACIÓN","hero.s2":"PAÍSES · UN ESTÁNDAR","hero.s3":"9001 · 14001 · 45001",
+    "hero.cta":"Ver nuestros servicios","hero.signal":"SIGNAL HILL, CA — SEDE","hero.scroll":"Bajar",
+    "sect.company":"COMPAÑÍA","company.aside":"Operador de tercera generación",
+    "intro.h.l1":"Independientes.","intro.h.l2":"Liderados por operadores.","intro.h.l3":"Silenciosamente implacables.",
+    "intro.p1":"JMP es una empresa de servicios petroleros de tercera generación con sede en Signal Hill, California, y operaciones de campo en Santiago, Neuquén y Bogotá.",
+    "intro.p2":"Avanzamos con calma cuando importa y con velocidad cuando es necesario. Nuestros clientes son operadores que quieren un único socio responsable — no un proveedor que desaparece entre trabajos.",
+    "quote.who":"NOTAS DE CAMPO","quote.said":"“Nunca crecimos más rápido de lo que podíamos supervisar. Esa decisión nos ha costado muchos contratos y exactamente cero workovers.”","quote.cite1":"JOHN M. PHILLIPS III","quote.cite2":"DIRECTOR · 2019",
+    "sect.services":"SERVICIOS","services.aside":"06 disciplinas · una cuadrilla",
+    "services.h.l1":"Seis disciplinas.","services.h.l2":"Una sola cuadrilla.",
+    "srv.1.name":"Intervención de pozos","srv.1.desc":"Wireline, slickline y tubería continua con cuadrillas que llevan décadas tanto en el Permian como en Vaca Muerta.",
+    "srv.2.name":"Pruebas de producción","srv.2.desc":"Pruebas de pozo en superficie, paquetes de separador y flowback con entrega de datos calibrada que se integra con su sistema de reportes.",
+    "srv.3.name":"Cementación y estimulación","srv.3.desc":"Cementación primaria y correctiva, estimulación con ácido y operaciones con tapones puente — diseñado y ejecutado en casa.",
+    "srv.4.name":"Taponamiento y abandono","srv.4.desc":"Programas onshore de P&A con documentación de grado regulatorio. Desmantelar una vez, bien hecho, sin retornos.",
+    "srv.5.name":"Supervisión de workover","srv.5.desc":"Servicios de company-man con supervisores bilingües y la disciplina de dejar todo escrito antes de la reunión.",
+    "srv.6.name":"Logística y movilización","srv.6.desc":"Traslados transfronterizos, gestión aduanera y montaje de campamento base para nuevas locaciones en zonas remotas.",
+    "sect.rentals":"EQUIPOS","rentals.aside":"En patio · mantenidos OEM",
+    "rentals.h.l1":"Equipos","rentals.h.l2":"en campo","rentals.h.l3":"en 48 horas.",
+    "rentals.m1.l":"Flota","rentals.m1.s":"UNIDADES · 04 PATIOS","rentals.m2.l":"Movilización","rentals.m2.s":"REGIONAL · PUERTA A LOCACIÓN","rentals.m3.l":"Utilización 2025","rentals.m3.s":"YTD · PROMEDIO MÓVIL",
+    "rentals.c1":"BOP","rentals.c2":"Cabezales","rentals.c3":"Separadores","rentals.c4":"Tanques flowback","rentals.c5":"Bombas de presión","rentals.c6":"Unidades de nitrógeno","rentals.c7":"Carretes de coil",
+    "sect.markets":"MERCADOS","markets.aside":"Hemisferio · norte a sur",
+    "markets.h.l1":"Cuatro países.","markets.h.l2":"Un estándar.",
+    "mk.1.tag":"PRIMARIO","mk.1.name":"Petróleo y gas","mk.1.desc":"Onshore convencional y no convencional. Trabajos activos en Wilmington, Vaca Muerta y los Llanos.",
+    "mk.2.tag":"EN EXPANSIÓN","mk.2.name":"Geotermia","mk.2.desc":"Servicios de pozo a alta temperatura para sistemas de ciclo cerrado y EGS en el oeste de EE. UU.",
+    "mk.3.tag":"SELECTO","mk.3.name":"Almacenamiento de carbono","mk.3.desc":"Servicios para pozos de inyección Clase VI e instrumentación de monitoreo de larga duración.",
+    "mk.4.tag":"SOPORTE","mk.4.name":"Agua y salmuera","mk.4.desc":"Construcción de pozos de disposición salina, pilotos de litio y reutilización de agua de producción.",
+    "sect.history":"HISTORIA","hist.aside":"1952 → 2026 · 74 años",
+    "hist.h.l1":"Setenta y cuatro años","hist.h.l2":"terminando el trabajo.",
+    "ms.1.h":"Abre la Bahía 01","ms.1":"John M. Phillips abre un taller de servicio a pozos de una sola bahía en Signal Hill.",
+    "ms.2.h":"Patagonia, primer embarque","ms.2":"Primer trabajo internacional — supervisión de workover en Comodoro Rivadavia, Argentina.",
+    "ms.3.h":"Base Andina","ms.3":"Se establece la base de campo en Bogotá. La flota supera las 100 unidades.",
+    "ms.4.h":"ISO tri-norma","ms.4":"ISO 9001, 14001 y 45001 otorgadas simultáneamente en todas las bases.",
+    "ms.5.h":"Tercera generación","ms.5":"La tercera generación asume la propiedad. Se lanzan las divisiones de geotermia y carbono.",
+    "qhse.aside":"Auditado anualmente · tercero",
+    "qhse.h.l1":"La seguridad no es","qhse.h.l2":"un departamento.",
+    "qhse.p1":"Cada supervisor de JMP tiene autoridad de parar el trabajo — y lo decimos en serio. Nuestro programa integrado QHSE es auditado anualmente por un tercero y revisado semanalmente en campo.",
+    "qhse.p2":"Abajo: métricas operacionales vigentes. Registros de auditoría, desgloses TRIR completos y certificaciones disponibles a pedido.",
+    "qhse.s1":"ÍNDICE DE INCIDENTES REGISTRABLES · 2025","qhse.s2":"DÍAS SIN LTI · HQ + CL","qhse.s3":"AUDITORÍAS APROBADAS · 2014–2025","qhse.s4":"CALIFICACIONES DE OPERADOR",
+    "qhse.iso1":"Calidad","qhse.iso2":"Ambiente","qhse.iso3":"Salud y Seguridad","qhse.iso4":"Calidad de Servicio",
+    "sect.contact":"CONTACTO","ct.aside":"Sin formularios · líneas directas",
+    "ct.h.l1":"Hable con un","ct.h.l2":"supervisor de campo.",
+    "ct.p":"Sin formularios, sin cuestionarios de calificación. Los números abajo timbran directamente a la persona que haría su trabajo.",
+    "ct.b1.role":"SEDE · EE. UU.","ct.b2.role":"REGIONAL · CHILE","ct.b3.role":"BASE DE CAMPO · ARGENTINA","ct.b4.role":"BASE DE CAMPO · COLOMBIA",
+    "footer.copy":"© JMP · 1952–2026 · Signal Hill, CA","footer.linkedin":"LinkedIn","footer.careers":"Empleo","footer.press":"Prensa","footer.privacy":"Privacidad"
+  }
+};
+function applyLang(lang){
+  const dict = i18n[lang] || i18n.en;
+  document.documentElement.lang = lang;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const k = el.getAttribute("data-i18n");
+    if(dict[k] != null) el.textContent = dict[k];
+  });
+  document.querySelectorAll(".lang-toggle button").forEach(b=>{
+    b.classList.toggle("active", b.dataset.lang === lang);
+  });
+}
+document.querySelectorAll(".lang-toggle button").forEach(b=>{
+  b.addEventListener("click", ()=> applyLang(b.dataset.lang));
+});
+
+/* ---------- Mobile menu ---------- */
+const mm = document.getElementById("mobileMenu");
+document.getElementById("hamburger").addEventListener("click", ()=>{ mm.classList.add("open"); mm.setAttribute("aria-hidden","false"); });
+document.getElementById("hamburgerClose").addEventListener("click", ()=>{ mm.classList.remove("open"); mm.setAttribute("aria-hidden","true"); });
+mm.querySelectorAll("a").forEach(a=>a.addEventListener("click", ()=>{ mm.classList.remove("open"); mm.setAttribute("aria-hidden","true"); }));
+
+/* ---------- Nav + scroll progress ---------- */
+const nav = document.getElementById("nav");
+const heroEl = document.querySelector(".hero");
+const progressBar = document.getElementById("progressBar");
+function onScroll(){
+  const threshold = heroEl.offsetHeight - 80;
+  nav.classList.toggle("solid", window.scrollY > threshold);
+  const max = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = max > 0 ? (window.scrollY / max) * 100 : 0;
+  progressBar.style.height = pct + "%";
+}
+window.addEventListener("scroll", onScroll, {passive:true});
+onScroll();
+
+/* ---------- Marquee build ---------- */
+(function buildMarquee(){
+  const items = ["BOP Stacks","Wellheads","Test Separators","Flowback Tanks","Pressure Pumps","Nitrogen Units","Coil Reels","Frac Manifolds"];
+  const track = document.getElementById("marqueeTrack");
+  const make = ()=>{
+    const frag = document.createDocumentFragment();
+    items.forEach((it,i)=>{
+      const el = document.createElement("span");
+      el.className = "marquee-item";
+      const ghost = i % 2 ? " ghost" : "";
+      el.innerHTML = `<span class="word${ghost ? ' ghost':''}">${it}</span><span class="sep">/${String(i+1).padStart(2,'0')}/</span>`;
+      frag.appendChild(el);
+    });
+    return frag;
+  };
+  track.appendChild(make());
+  track.appendChild(make());
+})();
+
+/* ---------- Ping-pong via pre-decoded ImageBitmap buffer ----------
+   Seek the hidden <video> frame-by-frame, capture each into an ImageBitmap,
+   then animate by drawing bitmaps to a canvas via rAF. Zero playback
+   edge cases — the canvas never freezes because we control every paint. */
+const video = document.getElementById("heroVideo");
+const poster = document.getElementById("heroPoster");
+const canvas = document.getElementById("heroCanvas");
+const ctx = canvas.getContext("2d", { alpha: false });
+
+const FRAME_FPS = 24;        // smoothness of the loop
+const SCALE_MAX_W = 960;     // downscale ceiling — keeps memory sane
+let frames = [];
+let idx = 0, dir = 1;
+let renderRAF = 0, lastDraw = 0;
+const FRAME_MS = 1000 / FRAME_FPS;
+
+function seekTo(v, t){
+  return new Promise((resolve, reject)=>{
+    let done = false;
+    const onSeeked = ()=>{ if(done) return; done = true; v.removeEventListener("seeked", onSeeked); resolve(); };
+    const onErr = ()=>{ if(done) return; done = true; reject(new Error("seek failed")); };
+    v.addEventListener("seeked", onSeeked, {once:true});
+    v.addEventListener("error", onErr, {once:true});
+    try{ v.currentTime = t; }catch(e){ reject(e); }
+    // Safety fallback if 'seeked' never fires
+    setTimeout(()=>{ if(!done){ done = true; v.removeEventListener("seeked", onSeeked); resolve(); } }, 800);
+  });
+}
+
+async function buildBuffer(){
+  // CRITICAL: The preview server doesn't honor HTTP Range requests, which
+  // makes <video> report seekable=[0,0] even at readyState 4 — we can't
+  // capture any frame except t=0. Fix: fetch the whole MP4 as a Blob and
+  // hand the browser a blob: URL, which is fully seekable in memory.
+  try{
+    const resp = await fetch("assets/hero-loop.mp4");
+    const blob = await resp.blob();
+    const url = URL.createObjectURL(blob);
+    video.src = url;
+    await new Promise(r => {
+      const ok = ()=>{ if(video.readyState >= 2){ cleanup(); r(); } };
+      const cleanup = ()=>{
+        video.removeEventListener("loadeddata", ok);
+        video.removeEventListener("canplay", ok);
+      };
+      video.addEventListener("loadeddata", ok);
+      video.addEventListener("canplay", ok);
+      video.load();
+      // safety
+      setTimeout(()=>{ cleanup(); r(); }, 6000);
+    });
+  } catch(e){
+    // Fall back: try whatever the <source> already loaded
+    if(video.readyState < 2){
+      await new Promise(r => {
+        const ok = ()=>{ if(video.readyState >= 2){ video.removeEventListener("loadeddata", ok); r(); } };
+        video.addEventListener("loadeddata", ok);
+        setTimeout(r, 4000);
+      });
+    }
+  }
+
+  try{ video.pause(); }catch(e){}
+  const dur = (video.duration && isFinite(video.duration)) ? video.duration : 7;
+  const vw = video.videoWidth || 1280;
+  const vh = video.videoHeight || 660;
+  const scale = Math.min(1, SCALE_MAX_W / vw);
+  const W = Math.round(vw * scale);
+  const H = Math.round(vh * scale);
+  canvas.width = W; canvas.height = H;
+
+  const tmp = document.createElement("canvas");
+  tmp.width = W; tmp.height = H;
+  const tmpCtx = tmp.getContext("2d", { alpha: false });
+
+  const N = Math.max(8, Math.floor(dur * FRAME_FPS));
+  for(let i = 0; i < N; i++){
+    const t = Math.min(dur - 0.001, (i / FRAME_FPS));
+    try{
+      await seekTo(video, t);
+      tmpCtx.drawImage(video, 0, 0, W, H);
+      const bmp = await createImageBitmap(tmp);
+      frames.push(bmp);
+      if(i === 0){
+        ctx.drawImage(bmp, 0, 0);
+        canvas.classList.add("in");
+        poster.style.opacity = 0;
+      }
+    } catch(e){ /* skip bad seeks */ }
+  }
+
+  if(frames.length < 2){
+    canvas.classList.remove("in");
+    poster.style.opacity = 1;
+    return;
+  }
+  startRender();
+}
+
+function startRender(){
+  if(renderRAF) return;
+  lastDraw = 0;
+  renderRAF = requestAnimationFrame(renderTick);
+}
+function stopRender(){
+  if(renderRAF){ cancelAnimationFrame(renderRAF); renderRAF = 0; }
+}
+function renderTick(now){
+  if(!lastDraw) lastDraw = now;
+  const dt = now - lastDraw;
+  if(dt >= FRAME_MS){
+    lastDraw = now - (dt % FRAME_MS);
+    idx += dir;
+    if(idx >= frames.length - 1){ idx = frames.length - 1; dir = -1; }
+    else if(idx <= 0){ idx = 0; dir = 1; }
+    const bmp = frames[idx];
+    if(bmp) ctx.drawImage(bmp, 0, 0);
+  }
+  renderRAF = requestAnimationFrame(renderTick);
+}
+
+// Pause render on hidden tab; resume on focus
+document.addEventListener("visibilitychange", ()=>{
+  if(document.hidden) stopRender(); else if(frames.length > 1) startRender();
+});
+
+// Kick the decode. autoplay forces the browser to load the file;
+// buildBuffer() will pause it as soon as enough is buffered.
+buildBuffer();
+
+/* ---------- Parallax (rAF) ---------- */
+const heroMedia = document.getElementById("heroMedia");
+const heroInner = document.getElementById("heroInner");
+let lastScroll = 0, ticking = false;
+function tickParallax(){
+  const y = lastScroll;
+  const heroH = heroEl.offsetHeight;
+  if(y < heroH * 1.3){
+    heroMedia.style.transform = `translate3d(0, ${y * 0.45}px, 0) scale(${1 + y * 0.0002})`;
+    heroInner.style.transform = `translate3d(0, ${-y * 0.18}px, 0)`;
+    heroInner.style.opacity = Math.max(0, 1 - y / (heroH * 0.85));
+  }
+  ticking = false;
+}
+window.addEventListener("scroll", ()=>{
+  lastScroll = window.scrollY;
+  if(!ticking){ requestAnimationFrame(tickParallax); ticking = true; }
+}, {passive:true});
+
+/* ---------- Word-stagger split + reveal ---------- */
+function splitWords(el){
+  el.querySelectorAll(".word").forEach((w,i)=>{
+    w.style.setProperty("--wd", (i * 80) + "ms");
+  });
+}
+document.querySelectorAll(".stagger-words").forEach(splitWords);
+
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); }
+  });
+}, {threshold:0.12, rootMargin:"0px 0px -60px 0px"});
+document.querySelectorAll(".reveal, .stagger-words").forEach(el=>io.observe(el));
+
+/* Trigger hero h1 reveal immediately */
+requestAnimationFrame(()=>document.getElementById("heroH1").classList.add("in"));
+
+/* ---------- Timeline stagger ---------- */
+const tl = document.getElementById("timeline");
+const tlObserver = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add("in");
+      e.target.querySelectorAll(".milestone").forEach((m,i)=>{
+        setTimeout(()=>m.classList.add("in"), 200 + i * 140);
+      });
+      tlObserver.unobserve(e.target);
+    }
+  });
+}, {threshold:0.2});
+tlObserver.observe(tl);
+</script>
+</body>
+</html>
